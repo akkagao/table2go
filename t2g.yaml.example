@@ -1,0 +1,12 @@
+databasez:
+  #数据库配置
+  #database:
+  # type 取值范围 postgresql 和 mysql
+  type: mysql
+  # type 取值为mysql 需要配置 mysqlConn
+  mysqlConn: {user}:{password}@tcp({ip}:{port})/{dbname}
+  # type postgresql，postgresqlConn按如下格式配置
+  postgresqlConn: user={user} password={password} dbname={dbname} host={ip} port={port} sslmode=disable
+
+#数据库表名前缀
+tableNameHandler: ["t_","tb_"]
