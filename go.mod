@@ -1,4 +1,4 @@
-module table2go
+module github.com/akkagao/table2go
 
 go 1.13
 
