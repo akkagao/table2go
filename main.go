@@ -197,24 +197,7 @@ func marshal(name string) string {
 			s += string(vv)
 		}
 	}
-
-	s = uncommonInitialismsReplacer.Replace(s)
 	return s
-}
-
-// Copied from golint
-var commonInitialisms = []string{"ACL", "API", "ASCII", "CPU", "CSS", "DNS", "EOF", "GUID", "HTML", "HTTP", "HTTPS", "ID", "IP", "JSON", "LHS", "QPS", "RAM", "RHS", "RPC", "SLA", "SMTP", "SQL", "SSH", "TCP", "TLS", "TTL", "UDP", "UI", "UID", "UUID", "URI", "URL", "UTF8", "VM", "XML", "XMPP", "XSRF", "XSS"}
-var uncommonInitialismsReplacer *strings.Replacer
-
-func init() {
-	flag.BoolVar(&help, "h", false, "this help")
-	flag.StringVar(&tableName, "t", "", "表名")
-
-	var uncommonInitialismsForReplacer []string
-	for _, initialism := range commonInitialisms {
-		uncommonInitialismsForReplacer = append(uncommonInitialismsForReplacer, strings.Title(strings.ToLower(initialism)), initialism)
-	}
-	uncommonInitialismsReplacer = strings.NewReplacer(uncommonInitialismsForReplacer...)
 }
 
 func changeType(fieldType string) string {
