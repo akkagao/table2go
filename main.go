@@ -225,3 +225,8 @@ func changeType(fieldType string) string {
 	}
 	return fieldType
 }
+
+func init() {
+	flag.BoolVar(&help, "h", false, "this help")
+	flag.StringVar(&tableName, "t", "", "表名")
+}
