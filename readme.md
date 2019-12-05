@@ -17,10 +17,9 @@ go get -u -v github.com/akkagao/table2go
 **可以复制 t2g.yaml.example 中的内容修改**
 
 ```yaml
-databasez:
+database:
   #数据库配置
-  #database:
-  # type 取值范围 postgresql 和 mysql
+  # type 取值范围 postgresql 和 mysql (用于指定数据库类型)
   type: mysql
   # type 取值为mysql 需要配置 mysqlConn
   mysqlConn: {user}:{password}@tcp({ip}:{port})/{dbname}
