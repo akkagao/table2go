@@ -135,8 +135,7 @@ func initConfig() error {
 	Config.SetConfigFile(configFile)
 	err := Config.ReadInConfig()
 	if err != nil {
-		log.Println("InitConfig conf file:%v error", configFile)
-		panic(err)
+		log.Printf("InitConfig conf file:%v error", configFile)
 		return err
 	}
 	return nil
@@ -148,7 +147,7 @@ func initConfig() error {
 func initMysqlDb() {
 	mysqlDb, err := gorm.Open("mysql", Config.GetString("database.mysqlConn"))
 	if err != nil {
-		log.Println("start mysql error:%v", err)
+		log.Printf("start mysql error:%v", err)
 		panic("StartDB Error")
 	}
 	mysqlDb.DB().SetConnMaxLifetime(time.Minute * 5)
@@ -164,7 +163,7 @@ func initMysqlDb() {
 func initPostgresqlDb() {
 	postgreDb, err := gorm.Open("postgres", Config.GetString("database.postgresqlConn"))
 	if err != nil {
-		log.Println("start postgresql error:%v", err)
+		log.Printf("start postgresql error:%v", err)
 		panic("StartDB Error")
 	}
 	postgreDb.DB().SetConnMaxLifetime(time.Minute * 5)
